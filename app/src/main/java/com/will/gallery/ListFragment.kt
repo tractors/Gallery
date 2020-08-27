@@ -2,6 +2,7 @@ package com.will.gallery
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -55,7 +56,7 @@ class ListFragment : Fragment() {
         when(item.itemId){
             R.id.swipeIndicator -> {
                 swipeLayoutGallery.isRefreshing = true
-                galleryViewModel.fetchData()
+                Handler().postDelayed(Runnable { galleryViewModel.fetchData() },1000)
             }
         }
         return super.onOptionsItemSelected(item)
